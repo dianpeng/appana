@@ -1,0 +1,21 @@
+{
+  "name": "appana",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "google-play-scraper": "^10.0.1",
+    "app-store-scraper": "^0.18.0",
+    "ollama": "^0.5.16",
+    "languagedetect": "^2.0.0",
+    "ini": "^5.0.0",
+    "yargs": "^13.3.2"
+  },
+  "devDependencies": {}
+}
