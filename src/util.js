@@ -85,7 +85,7 @@ class Filter {
     if (idx === undefined) return true; // unsettle
 
     const tt = this._count[idx] + 1;
-    if (tt >= this._weight[idx]) return false;
+    if (tt > this._weight[idx]) return false;
     return true;
   }
 

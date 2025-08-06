@@ -117,7 +117,6 @@ async function parseConfig(defOption, configText) {
   defOption.pause = defPairI(config.pause, defOption.pause);
 
   defOption.llmModel = def(config.llm.model, defOption.llmModel);
-  defOption.llmSystem = def(config.llm.system, defOption.llmSystem);
   defOption.llmHost = def(config.llm.host, defOption.llmHost);
   defOption.llmShowPrompt = defB(
     config.llm.showPrompt,

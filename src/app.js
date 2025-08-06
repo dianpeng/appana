@@ -22,7 +22,6 @@ let defOption = {
 
   // llm
   llmModel: undefined,
-  llmSystem: undefined,
   llmHeaders: undefined,
   llmHost: undefined,
   llmShowPrompt: true,
@@ -98,18 +97,21 @@ async function doPrompt(option) {
 
 async function doSummarize(option) {
   checkOptionLLM(option);
-  const prompt = await doPrompt(option);
-  const model = new ollama(
-    option.llmModel,
-    option.llmSystem,
-    option.llmHost,
-    option.llmHeaders,
+  const p = await doPrompt(option);
+  const model = new ollama.Model(
+    new ollama.Option(
+      option.llmModel,
+      await prompt.system(option),
+      option.llmHost,
+      option.llmHeaders,
+      option.llmTemperature,
+    ),
   );
-  const output = await model.complete(prompt);
+  const output = await model.complete(p);
 
   if (option.llmShowPrompt) {
     return (
-      prompt +
+      p +
       "\n--------------------------------------------------------\n" +
       output
     );
